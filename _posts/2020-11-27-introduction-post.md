@@ -21,9 +21,9 @@ description: 1
 <p>In this codelab, you will use the demo project that has been created for you to experience Video Kit APIs. Through the demo project, you will experience developing a video play feature with;</p>
 <ul>
 	<li>Initializing Wise Player</li>
-	<li>Setting Urls to play a video</li>
 	<li>Playing the video in the app</li>
-	<li>Using powerful Video Kit Features</li>
+	<li>Using powerful Video Kit features</li>
+  <li>Updating SeekBar</li>
   <li>Using Preloader</li>
 </ul>
 <h2 class="checklist">
@@ -33,6 +33,6 @@ description: 1
 	In this codelab, you will learn how to:
 </p>
 <ul class="checklist">
-	<li>Initialize Wise Player in order to play videos</li>
-	<li>Integrate and use the abilities of Video Kit SDK</li>
+	<li>Initialize Wise Player and play videos</li>
+	<li>Integrate and use the abilities of Video Kit SDK, such as Preloader</li>
 </ul>
