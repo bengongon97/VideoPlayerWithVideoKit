@@ -8,24 +8,22 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>2. Create the Wise Player Factory instance in a class that extends Application</strong></p>
-<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    
-        // Pass the device ID to the setDeviceId method.
-        val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
-        
-        // In the multi-process scenario, the onCreate method in Application is called multiple times.
-        // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
-        // and WisePlayer process (named "app package name:player")
-        
-        WisePlayerFactory.initFactory(this, factoryOptions, object : InitFactoryCallback {
-            override fun onSuccess(wisePlayerFactory: WisePlayerFactory) {
-                Log.d(TAG, "onSuccess wisePlayerFactory:$wisePlayerFactory")
-                Companion.wisePlayerFactory = wisePlayerFactory
-            }
+<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
+// Pass the device ID to the setDeviceId method.
+val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
+// In the multi-process scenario, the onCreate method in Application is called multiple times.
+// The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
+// and WisePlayer process (named "app package name:player")
 
-            override fun onFailure(errorCode: Int, msg: String) {
-                Log.e(TAG, "onFailure errorcode:$errorCode reason:$msg")
-            }
-        })        
+WisePlayerFactory.initFactory(this, factoryOptions, object : InitFactoryCallback {
+    override fun onSuccess(wisePlayerFactory: WisePlayerFactory) {
+        Log.d(TAG, "onSuccess wisePlayerFactory:$wisePlayerFactory")
+        Companion.wisePlayerFactory = wisePlayerFactory
+    }
+    override fun onFailure(errorCode: Int, msg: String) {
+        Log.e(TAG, "onFailure errorcode:$errorCode reason:$msg")
+    }
+})
 <span class="pln">
 </span></code></pre>
 <p>Description of <strong>Wise Player Factory</strong> is as following:<br></p>
