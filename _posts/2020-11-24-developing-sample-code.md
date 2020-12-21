@@ -4,12 +4,11 @@ description: 15
 ---
 
 <p><strong>1. Locate following line to create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
-<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>//TODO: Initializing of Wise Player Factory
+<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO: Initializing of Wise Player Factory
 <span class="pln">
 </span></code></pre>
 <p><strong>2. Create the Wise Player Factory instance in a class that extends Application</strong></p>
-<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-  // Pass the device ID to the setDeviceId method.
+<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // Pass the device ID to the setDeviceId method.
   val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
   // In the multi-process scenario, the onCreate method in Application is called multiple times.
   // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
@@ -51,12 +50,11 @@ description: 15
 	</td></tr>
 </tbody></table>
 <p><strong>3. Locate following line in PlayActivity.kt</strong></p>
-<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>//TODO: Initialize the Wise Player Factory instance
+<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO: Initialize the Wise Player Factory instance
 <span class="pln">
 </span></code></pre>
 <p><strong>4.Initialize the Wise Player Factory instance and set the listeners</strong></p>
-<pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-  //You should call this function in the onCreate() function of the activity.
+<pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //You should call this function in the onCreate() function of the activity.
   if (wisePlayerFactory != null) {
       player = wisePlayerFactory!!.createWisePlayer()
       if(player != null){
@@ -82,12 +80,11 @@ description: 15
 </aside>
 <br><img style="width: 400.00px" src="https://raw.githubusercontent.com/bengongon97/VideoPlayerWithVideoKit/master/assets/frameLayoutForSurfaceView.png" onclick="imageclick(src)">
 <p><strong>5. Locate following line in PlayActivity.kt</strong></p>
-<pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>//TODO: Implement surfaceCreated method
+<pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO: Implement surfaceCreated method
 <span class="pln">
 </span></code></pre>
 <p><strong>6. Implement the method for SurfaceView</strong></p>
-<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
-  if (player != null) {
+<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  if (player != null) {
       player!!.setView(surfaceView)
       // To resume WisePlayer when you bring your app to the foreground, call the resume API. You can determine whether the playback automatically starts after your app is brought to the foreground by passing a parameter.
       player!!.resume(PlayerConstants.ResumeType.KEEP)
