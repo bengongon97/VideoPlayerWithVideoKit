@@ -3,7 +3,7 @@ title: "Introduction"
 description: 1
 ---
 
-<huawei-codelab-about codelab-title="Huawei Video Kit" last-updated="2020-12-09T13:20:13-07:00" authors="Huawei Codelab Team">
+<huawei-codelab-about codelab-title="Huawei Video Kit" last-updated="2020-12-21T13:20:13-07:00" authors="Huawei Codelab Team">
 <div class="codelab-title">
 <div class="token">Huawei Video Kit</div></div>
 <div class="about-card">
@@ -21,9 +21,10 @@ description: 1
 <p>In this codelab, you will use the demo project that has been created for you to experience Video Kit APIs. Through the demo project, you will experience developing a video play feature with;</p>
 <ul>
 	<li>Initializing Wise Player</li>
-	<li>Setting Urls to display a video</li>
+	<li>Setting Urls to play a video</li>
 	<li>Playing the video in the app</li>
 	<li>Using powerful Video Kit Features</li>
+  <li>Using Preloader</li>
 </ul>
 <h2 class="checklist">
 	<strong>What You Will Learn</strong>
@@ -32,6 +33,6 @@ description: 1
 	In this codelab, you will learn how to:
 </p>
 <ul class="checklist">
-	<li>Initialize Wise Player in order to display videos</li>
-	<li>Integrate and use abilities of Video Kit SDK</li>
+	<li>Initialize Wise Player in order to play videos</li>
+	<li>Integrate and use the abilities of Video Kit SDK</li>
 </ul>
