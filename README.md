@@ -10,12 +10,11 @@
  
 ## Introduction
     HMS Video Kit Codelab code encapsulates APIs of the HUAWEI Video Kit SDK. It provides many sample programs for your reference or usage.
-    Before you use this codelab, it's assumed that you already have a HUAWEI developer account and have already created an app to implement the HMS Video Kit. If you haven't,    please refer to https://developer.huawei.com/consumer/en/doc/start/introduction-0000001053446472 and https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-introduction.
+    Before you use this codelab, it's assumed that you already have a HUAWEI developer account and have already created an app to implement the HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/consumer/en/doc/start/introduction-0000001053446472 and https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-introduction.
     
-    model:       The package name which refers to a video object.
-    ui:          The package name which shows the interface of the app to the user.
-    utils:       The Package which helps the video duration and current time values shown in the ui.
-
+    FileReaders:       The package name which contains the file reader classes from the asset folder. A text file is read and buffered to RecyclerView in PlayActivity.
+    Utils:             The package name which contains the necessary utils to convert time, see device configuration and display AlertDialogs.
+    
 ## Installation
     Before using HMS Video Kit Codelab code, check whether the Android Studio environment has been installed. 
     Download the HMS Video Kit Codelab project by zip or clone in Github.
@@ -39,35 +38,31 @@
     9. Synchronize the project.
 	
 ## Sample Code
-    HMS Video Kit Codelab code uses the Client structure in the project.The following describes methods in the Client structure.
+    HMS Video Kit Codelab code contains many functions to implement many features. Following is a summary of some crucial methods.
 
     1) Initiliaze WisePlayerFactory instance.
-    You can obtain the initialized WisePlayerFactory instance using the initialize method in the WisePlayerInit object.
-    Code location src/main/java/com.dtse.videokitcodelab/WisePlayerInit.kt
+    You can obtain the initialized WisePlayerFactory instance using the companion object.
+    Code location src/main/java/com.hms.codelab.videokit.videoPlayerWithVideoKit/VideoKitApplication.kt
     
     2) Create WisePlayer instance
     You can obtain the initialized Wise Player instance using the createPlayer method in the WisePlayerInit object.
-    Code location  src/main/java/com.dtse.videokitcodelab/WisePlayerInit.kt
+    Code location  src/main/java/com.hms.codelab.videokit.videoPlayerWithVideoKit/PlayActivity.kt
     
     3) Playing Single Video Url
-    You can play a video by specfying a video Url.
-    Code location src/main/java/com.dtse.videokitcodelab/ui/main/MainActivity.kt
+    You can play a video by specifying a video Url. It is located in the options menu.
+    Code location src/main/java/com.hms.codelab.videokit.videoPlayerWithVideoKit/PlayActivity.kt
     
-    4) Playing Multiple Video Urls
-    You can play a video by specfying multiple video Urls.
-    Code location src/main/java/com.dtse.videokitcodelab/ui/main/MainActivity.kt
-    
-    5) Using FrameLayout in the UI
+    4) Using FrameLayout in the UI
     Videos can only be displayed if the FrameLayout is created in the xml.
-    Code location src/main/res/layout/activity_player.xml
+    Code location src/main/res/layout/activity_play.xml
     
-    6) Using Only Audio Mode
-    Only audio can be listened by adjusting the Wise Player's play mode settings.
-    Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
+    5) Using Only Audio Mode and Many Other Video Kit Features
+    Only audio can be listened by adjusting the Wise Player's play mode settings. Also, other features are located in the same place: Options Menu.
+    Code location src/main/java/com.hms.codelab.videokit.videoPlayerWithVideoKit/PlayActivity.kt
     
-    7) Video Rewinding and Forwarding Options
+    6) Video Rewinding and Forwarding Options
     Displaying videos can be rewound or forwarded with the Wise Player's seek feature.
-    Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
+    Code location src/main/java/com.hms.codelab.videokit.videoPlayerWithVideoKit/PlayActivity.kt
 
 ##  License
     HMS Video Kit Codelab is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
