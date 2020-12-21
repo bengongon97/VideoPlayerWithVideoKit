@@ -8,7 +8,7 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>2. Create the Wise Player Factory instance in a class that extends Application</strong></p>
-<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // Pass the device ID to the setDeviceId method.
+<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>// Pass the device ID to the setDeviceId method.
   val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
   // In the multi-process scenario, the onCreate method in Application is called multiple times.
   // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
