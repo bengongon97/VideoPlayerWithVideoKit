@@ -11,7 +11,7 @@ description: 15
 <pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    
         // Pass the device ID to the setDeviceId method.
         val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
-
+        
         // In the multi-process scenario, the onCreate method in Application is called multiple times.
         // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
         // and WisePlayer process (named "app package name:player")
@@ -25,7 +25,7 @@ description: 15
             override fun onFailure(errorCode: Int, msg: String) {
                 Log.e(TAG, "onFailure errorcode:$errorCode reason:$msg")
             }
-        })
+        })        
 <span class="pln">
 </span></code></pre>
 <p>Description of <strong>Wise Player Factory</strong> is as following:<br></p>
@@ -79,18 +79,17 @@ description: 15
         }
  <span class="pln">
 </span></code></pre>
-
 <aside class="special">
 	<p><strong>Note: Frame Layout is mandatory for SurfaceView to display videos, otherwise some problems with video playback may occur.</strong></p>
 </aside>
 <br><img style="width: 400.00px" src="https://raw.githubusercontent.com/bengongon97/VideoPlayerWithVideoKit/master/assets/frameLayoutForSurfaceView.png" onclick="imageclick(src)">
-
 <p><strong>5. Locate following line in PlayActivity.kt</strong></p>
 <pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO: Implement surfaceCreated method
 <span class="pln">
 </span></code></pre>
 <p><strong>6. Implement the method for SurfaceView</strong></p>
-<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  if (player != null) {
+<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+        if (player != null) {
             player!!.setView(surfaceView)
             // To resume WisePlayer when you bring your app to the foreground, call the resume API. You can determine whether the playback automatically starts after your app is brought to the foreground by passing a parameter.
             player!!.resume(PlayerConstants.ResumeType.KEEP)
@@ -101,8 +100,9 @@ description: 15
 <pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO: Set seekbar listener onStop method
 <span class="pln">
 </span></code></pre>
-<p><strong>8. Implement the stop part of Seekbar Listener in PlayActivity.kt</strong></p>
-<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  if (player != null && hasVideoEverStarted && dialogUtil.vodRetriever()) {
+<p><strong>8. Implement the stop part of Seekbar Listener</strong></p>
+<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+                if (player != null && hasVideoEverStarted && dialogUtil.vodRetriever()) {
                     showBufferingView()
                     player!!.seek(seekBar.progress)
                     updatePlayProgressView(seekBar.progress, player!!.bufferTime)
@@ -114,7 +114,8 @@ description: 15
 	<span class="pln">
 </span></code></pre>
 <p><strong>10. Write the code to update the progress</strong></p>
-<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar!!.progress = progress
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+        seekBar!!.progress = progress
         seekBar!!.secondaryProgress = bufferPosition
         seekBar!!.incrementSecondaryProgressBy(bufferPosition - progress)
         progressTextView!!.text = formatLongToTimeStr(progress)
@@ -125,7 +126,8 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>12. Implement the onItemClick method for RecyclerView</strong></p>
-<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  currentPlayItem = myVideoList!![position]
+<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+        currentPlayItem = myVideoList!![position]
         //to ensure that we have the instance because normally getting the instance takes time
         //if cannot be acquired above, it will be acquired here
         while (player == null) {
@@ -155,7 +157,8 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>14. Implement UI thread runnable to update the progress calculations regularly</strong></p>
-<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  runOnUiThread(object : Runnable {
+<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+        runOnUiThread(object : Runnable {
             override fun run() {
                 if (player != null && isReallyPlaying) {
                     updatePlayProgressView(player!!.currentTime, player!!.bufferTime)
@@ -170,7 +173,8 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>16. Implement ReadyListener as right after the .start() method, execution will continue from here</strong></p>
-<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  startPlaying()
+<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+        startPlaying()
         runOnUiThread { updatePlayView(player) }
 <span class="pln">
 </span></code></pre>
@@ -179,7 +183,8 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>18. Release Wise Player and listeners in onDestroy() of PlayActivity.kt </strong></p>
-<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   player!!.stop()
+<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   
+            player!!.stop()
             player!!.release()
             player = null
             hasVideoEverStarted = false
